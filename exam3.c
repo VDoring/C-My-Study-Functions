@@ -1,15 +1,15 @@
 #include <stdio.h>
 
-int square(int n) { //void°¡ ¾Æ´Ñ int(Á¤¼ö)·Î ½ÃÀÛÇÑ´Ù.
+int square(int n) { //voidê°€ ì•„ë‹Œ int(ì •ìˆ˜)ë¡œ ì‹œì‘í•œë‹¤.
 	return n * n;
 }
 
 int main() {
 	int number;
-	printf("Á¦°öÀ» ±¸ÇÒ ¼ıÀÚ¸¦ Àû¾îÁÖ¼¼¿ä : ");
+	printf("ì œê³±ì„ êµ¬í•  ìˆ«ìë¥¼ ì ì–´ì£¼ì„¸ìš” : ");
 	scanf("%d", &number);
 
-	printf("%dÀÇ Á¦°öÀº %dÀÔ´Ï´Ù", number, square(number));
+	printf("%dì˜ ì œê³±ì€ %dì…ë‹ˆë‹¤", number, square(number));
 
 	return 0;
 }
