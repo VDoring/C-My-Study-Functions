@@ -1,27 +1,46 @@
-/* fgets */
-
+//라인 번호와 함께 파일 내용 출력
 #include <stdio.h>
-
-int main()
-
+#include <stdlib.h>
+ 
+void ReadAndPrint(const char *fname);
+int main(void)
 {
-
-char from_a_txt[30];
-char from_a_txt2[30];
-
-FILE *file_pointer;
-file_pointer=fopen("a.txt", "r");
-
-fscanf(file_pointer, "%s" from_a_txt);
-printf("읽어온 부분 : %s \n", from_a_txt);
-
-fgets(from_a_txt2, 30, file_pointer);
-printf("읽어온 부분 : %s \n", from_a_txt2);
-
-fclose(file_pointer);
-
-return 0;
-
+    char fname[200];
+ 
+    printf("파일 이름: ");
+    //공백을 포함한 파일 이름 입력할 때 gets_s(fname,sizeof(fname));
+    scanf_s("%s",fname,sizeof(fname));
+ 
+    ReadAndPrint(fname);
+    return 0;
 }
 
-// https://desire-with-passion.tistory.com/169
+int Distinction(char ch);
+
+void ReadAndPrint(const char *fname)
+{
+    FILE *fp;
+    char buf[4096];
+    int line=0;
+    //fp = fopen(fname,"r")과 fopen_s(&fp,fname,"r")는 같은 기능 수행
+    fopen_s(&fp,fname,"r");//읽기 모드로 파일 열기
+   
+    if(fp == NULL)
+    {
+        perror("파일 열기 실패");//에러 출력
+        exit(0); //프로그램 종료
+    }
+ 
+    while(!feof(fp))//파일의 끝을 만나지 않았다면 반복
+    {
+        line++;
+        fgets(buf,sizeof(buf),fp);
+       
+        printf("%3d: %s",line,buf);//하나의 문자를 읽어와서 콘솔 화면에 출력
+    }
+ 
+    fclose(fp);//파일 스트림 닫기
+    printf("\n라인 수:%d\n",line);
+}
+
+//https://ehclub.co.kr/1138
