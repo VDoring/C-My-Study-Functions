@@ -1,5 +1,5 @@
-# C-My-Study-Functions <br/>
+# My C Study <br/>
 
-- ### Practice the features I have learned.
+- ### Space for organizing fragmentary content learned in C language.
 
-- ### 배운 기능들을 연습하는 곳!
+- ### C언어로 배운 단편적인 내용을 정리하는 공간.
